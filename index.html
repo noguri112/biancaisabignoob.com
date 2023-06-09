@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Binca is a BIG NOOB!!!!</title>
-        <style>
+    <title>Freely Moving and Rotating Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            position: relative;
+        }
+
         img {
             position: absolute;
             animation: move-rotate 12s infinite linear;
@@ -36,10 +47,23 @@
                 transform: rotate(360deg);
             }
         }
+
+        #text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Brush Script", cursive;
+            font-size: 24px;
+            color: pink;
+        }
     </style>
 </head>
 <body>
-    <img src="images/bianca.png" alt="bianca is a big noob">
-    <audio src="audio/littyfetty.opus" autoplay loop></audio>
+    <div id="container">
+        <img src="images/bianca.png" alt="bianca is a big noob"
+        <audio src="audio/littyfetty.opus" autoplay loop></audio>
+        <div id="text">Bianca is a big noob!!!!!</div>
+    </div>
 </body>
 </html>
