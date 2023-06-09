@@ -1,36 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bianca is BIG NOOB</title>
+    <title>Bouncing and Rotating Image</title>
     <style>
         img {
             position: absolute;
-            animation: bounce 4s infinite;
+            animation: bounce-rotate 4s infinite;
+            transform-origin: center;
         }
 
-        @keyframes bounce {
+        @keyframes bounce-rotate {
             0% {
                 top: 0;
                 left: 0;
+                transform: rotate(0);
             }
             25% {
                 top: 0;
                 left: calc(100% - 200px);
+                transform: rotate(90deg);
             }
             50% {
                 top: calc(100% - 200px);
                 left: calc(100% - 200px);
+                transform: rotate(180deg);
             }
             75% {
                 top: calc(100% - 200px);
                 left: 0;
+                transform: rotate(270deg);
             }
             100% {
                 top: 0;
                 left: 0;
+                transform: rotate(360deg);
             }
         }
     </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const img = document.querySelector('img');
+            const corners = ['0% 0%', '0% 100%', '100% 0%', '100% 100%'];
+            let randomCorners = [];
+
+            function generateRandomCorners() {
+                randomCorners = [...corners].sort(() => Math.random() - 0.5);
+            }
+
+            function animateImage() {
+                if (randomCorners.length === 0) {
+                    generateRandomCorners();
+                }
+                const nextCorner = randomCorners.pop();
+                img.style.transformOrigin = nextCorner;
+                requestAnimationFrame(animateImage);
+            }
+
+            animateImage();
+        });
+    </script>
 </head>
 <body>
     <img src="images/bianca.png" alt="bianca is a big noob">
