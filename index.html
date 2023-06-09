@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bouncing and Rotating Image</title>
-    <style>
+    <title>Binca is a BIG NOOB!!!!</title>
+        <style>
         img {
             position: absolute;
-            animation: bounce-rotate 4s infinite;
+            animation: move-rotate 12s infinite linear;
             transform-origin: center;
         }
 
-        @keyframes bounce-rotate {
+        @keyframes move-rotate {
             0% {
                 top: 0;
                 left: 0;
@@ -37,28 +37,6 @@
             }
         }
     </style>
-    <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const img = document.querySelector('img');
-            const corners = ['0% 0%', '0% 100%', '100% 0%', '100% 100%'];
-            let randomCorners = [];
-
-            function generateRandomCorners() {
-                randomCorners = [...corners].sort(() => Math.random() - 0.5);
-            }
-
-            function animateImage() {
-                if (randomCorners.length === 0) {
-                    generateRandomCorners();
-                }
-                const nextCorner = randomCorners.pop();
-                img.style.transformOrigin = nextCorner;
-                requestAnimationFrame(animateImage);
-            }
-
-            animateImage();
-        });
-    </script>
 </head>
 <body>
     <img src="images/bianca.png" alt="bianca is a big noob">
